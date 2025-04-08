@@ -36,3 +36,9 @@ Presley McFarlane-Goolcharan
 - Added accessors and mutators for the "frequency" attribute.
 - Added unit testing for "frequency" accessors and mutators.
 
+## Code Modification 7
+
+- Added accessors and mutators for "VALID_AMORTIZATION" list.
+- Added unit testing for "VALID_AMORTIZATION" list accessors and mutators.
+
+

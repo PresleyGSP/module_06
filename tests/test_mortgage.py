@@ -68,3 +68,13 @@ class MortgageTests(TestCase):
         mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
         with self.assertRaises(ValueError):
             mortgage.set_frequency("INVALID_FREQUENCY")
+    
+    def test_set_amortizatiion_to_valid_value_updates_amortization(self):
+        mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
+        mortgage.set_amortization(20)
+        self.assertEqual(mortgage.get_amortization(), 20)
+
+    def test_set_amortization_to_invalid_value_raises_value_error(self):
+        mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
+        with self.assertRaises(ValueError):
+            mortgage.set_amortization(12)

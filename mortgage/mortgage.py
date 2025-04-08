@@ -89,6 +89,25 @@ class Mortgage:
                 self.__frequency = PaymentFrequency[frequency]
           except Exception as e:
                 raise ValueError("Frequency provided is invalid.")
+    
+    def get_amortization(self):
+        """Returns the amortization period in years."""
+
+        return self.__amortization
+    
+    def set_amortization(self, amortization):
+          """
+          Sets the amortization period.
+
+          Args:
+                amortization (int): The number of years to repay the mortgage.
+          Raises:
+                ValueError: If the amortization is not in the list of valid options
+          """
+
+          if amortization not in VALID_AMORTIZATION:
+            raise ValueError("Amortization provided is invalid.")
+          self.__amortization = amortization
                 
 
 
