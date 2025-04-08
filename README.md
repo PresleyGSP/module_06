@@ -21,3 +21,8 @@ Presley McFarlane-Goolcharan
 ## Code Modification 3
 
 - Performed unit testing for "Mortgage" Class. 
+
+## Code Modification 4
+
+- Added accessors and mutators for the loan_amount attribute.
+- Added unit testing for "loan_amount" accessor and mutator.

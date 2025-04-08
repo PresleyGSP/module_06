@@ -33,4 +33,18 @@ class MortgageTests(TestCase):
         self.assertEqual(mortgage._Mortgage__rate, MortgageRate.FIXED_5)
         self.assertEqual(mortgage._Mortgage__frequency, PaymentFrequency.MONTHLY)
         self.assertEqual(mortgage._Mortgage__amortization, 25)
-        
+    
+    def test_set_loan_amount_to_negative_raises_value_error(self):
+        mortgage = Mortgage(200000, "FIXED_5", "MONTHLY", 20)
+        with self.assertRaises(ValueError):
+            mortgage.set_loan_amount(-100000)
+
+    def test_set_loan_amount_to_zero_raises_value_error(self):
+        mortgage = Mortgage(200000, "FIXED_5", "MONTHLY", 20)
+        with self.assertRaises(ValueError):
+            mortgage.set_loan_amount(0)
+
+    def test_set_loan_amount_to_positive_value_updates_amount(self):
+        mortgage = Mortgage(200000, "FIXED_5", "MONTHLY", 20)
+        mortgage.set_loan_amount(300000)
+        self.assertEqual(mortgage.get_loan_amount(), 300000)

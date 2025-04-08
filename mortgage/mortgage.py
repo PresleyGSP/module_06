@@ -33,9 +33,23 @@ class Mortgage:
         if amortization not in VALID_AMORTIZATION:
             raise ValueError("Amortization provided is invalid.")
         self.__amortization = amortization
-        
-        
 
+    def get_loan_amount(self):
+        """Returns the mortgage loan amount."""
+
+        return self.__loan_amount
+    
+    def set_loan_amount(self, amount):
+          """Sets a new mortgage loan amount.
+          
+          Raises:
+                ValueError: If the amount is zero or negative.
+        
+          """
+          if amount <= 0:
+                raise ValueError("Loan Amount must be positive.")
+          self.__loan_amount = amount
+          
 
 
 
