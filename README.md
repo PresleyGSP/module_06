@@ -18,3 +18,6 @@ Presley McFarlane-Goolcharan
 
 - Defined a Class called "Mortgage"  with private attributes and implemented exception handling to validate input.
 
+## Code Modification 3
+
+- Performed unit testing for "Mortgage" Class. 
