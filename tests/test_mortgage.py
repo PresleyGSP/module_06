@@ -48,3 +48,13 @@ class MortgageTests(TestCase):
         mortgage = Mortgage(200000, "FIXED_5", "MONTHLY", 20)
         mortgage.set_loan_amount(300000)
         self.assertEqual(mortgage.get_loan_amount(), 300000)
+    
+    def test_set_rate_to_valid_enum_value_updates_rate(self):
+        mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
+        mortgage.set_rate("VARIABLE_3")
+        self.assertEqual(mortgage.get_rate(), MortgageRate.VARIABLE_3)
+
+    def test_set_rate_to_invalid_enum_value_raises_value_error(self):
+        mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
+        with self.assertRaises(ValueError):
+            mortgage.set_rate("INVALID_RATE")

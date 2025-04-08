@@ -49,7 +49,27 @@ class Mortgage:
           if amount <= 0:
                 raise ValueError("Loan Amount must be positive.")
           self.__loan_amount = amount
+    
+    def get_rate(self):
+          """Returns the mortgage interest rate."""
+
+          return self.__rate
+    
+    def set_rate(self, rate):
+          """
+          Sets the mortgage interest rate enum value.
           
+          Args:
+            rate (str): The string key of a MortgageRate enum number.
+
+          Raises:
+                ValueError: If the provided rate is invalid.
+          """
+          try:
+                self.__rate = MortgageRate[rate]
+          except Exception as e:
+                raise ValueError("Rate provided is invalid.")
+                
 
 
 
