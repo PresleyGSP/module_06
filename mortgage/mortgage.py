@@ -69,6 +69,26 @@ class Mortgage:
                 self.__rate = MortgageRate[rate]
           except Exception as e:
                 raise ValueError("Rate provided is invalid.")
+    
+    def get_frequency(self):
+          """Returns the payment frequency value."""
+
+          return self.__frequency
+    
+    def set_frequency(self, frequency):
+          """
+          Sets the mortgage payment frequency.
+
+          Args:
+                frequency (str): The string key of a PaymentFrequency enum member.
+          
+          Raises:
+                ValueError: If the frequency is not valid.
+          """
+          try:
+                self.__frequency = PaymentFrequency[frequency]
+          except Exception as e:
+                raise ValueError("Frequency provided is invalid.")
                 
 
 

@@ -24,9 +24,15 @@ Presley McFarlane-Goolcharan
 
 ## Code Modification 4
 
-- Added accessors and mutators for the loan_amount attribute.
+- Added accessors and mutators for the "loan_amount" attribute.
 - Added unit testing for "loan_amount" accessor and mutator.
 
 ## Code Modification 5
 
 - Added unit testing for "rate" accessor and mutator.
+
+## Code Modification 6
+
+- Added accessors and mutators for the "frequency" attribute.
+- Added unit testing for "frequency" accessors and mutators.
+

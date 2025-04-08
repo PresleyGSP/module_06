@@ -58,3 +58,13 @@ class MortgageTests(TestCase):
         mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
         with self.assertRaises(ValueError):
             mortgage.set_rate("INVALID_RATE")
+
+    def test_set_frequency_to_valid_enum_value_updates_frequency(self):
+        mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
+        mortgage.set_frequency("WEEKLY")
+        self.assertEqual(mortgage.get_frequency(), PaymentFrequency.WEEKLY)
+    
+    def test_set_frequency_to_invalid_enum_value_raises_value_error(self):
+        mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
+        with self.assertRaises(ValueError):
+            mortgage.set_frequency("INVALID_FREQUENCY")
