@@ -46,4 +46,11 @@ Presley McFarlane-Goolcharan
 - Added a "calculate_payment()" method to calculate loan repayment.
 - Added unit testing with valid input for "calculate_payment()" method.
 
+## Code Modification 9
+
+- Added formatted string representation of "Mortgage()" class.
+- Added unit testing to ensure "Mortgage()" string representation was accurate.
+- Added string representation of "Mortgage" object.
+
+
 

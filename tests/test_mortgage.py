@@ -7,7 +7,7 @@ Usage: Use the tests encapsulated within this class to test the MortgagePayment 
 
 from unittest import TestCase
 from mortgage.mortgage import Mortgage
-from mortgage.pixell_lookup import MortgageRate, PaymentFrequency
+from mortgage.pixell_lookup import MortgageRate, PaymentFrequency, VALID_AMORTIZATION
 
 class MortgageTests(TestCase):
 
@@ -69,7 +69,7 @@ class MortgageTests(TestCase):
         with self.assertRaises(ValueError):
             mortgage.set_frequency("INVALID_FREQUENCY")
     
-    def test_set_amortizatiion_to_valid_value_updates_amortization(self):
+    def test_set_amortization_to_valid_value_updates_amortization(self):
         mortgage = Mortgage(250000, "FIXED_5", "MONTHLY", 25)
         mortgage.set_amortization(20)
         self.assertEqual(mortgage.get_amortization(), 20)
@@ -96,3 +96,33 @@ class MortgageTests(TestCase):
 
           mortgage5 = Mortgage(750000, "VARIABLE_1", "MONTHLY", 20)
           self.assertAlmostEqual(mortgage5.calculate_payment(), 5720.58, places=2)
+    
+    def test_str_method_bi_weekly(self):
+        mortgage = Mortgage(682912.43, "FIXED_1", "MONTHLY", 30)
+        expected_output = (
+            "Mortgage Amount: $682,912.43\n" \
+            "Rate: 5.99%\n" \
+            "Amortization: 30\n"
+            "Frequency: Monthly -- Calculated Payment: $4,046.23"
+        )
+        self.assertEqual(str(mortgage), expected_output)
+
+    def test_str_method_bi_weekly(self):
+        mortgage = Mortgage(682912.43, "FIXED_1", "BI_WEEKLY", 30)
+        expected_output = (
+            "Mortgage Amount: $682,912.43\n" \
+            "Rate: 5.99%\n" \
+            "Amortization: 30\n"
+            "Frequency: Bi-Weekly -- Calculated Payment: $1,886.79"
+        )
+        self.assertEqual(str(mortgage), expected_output)
+
+    def test_str_method_weekly(self):
+        mortgage = Mortgage(682912.43, "FIXED_1", "WEEKLY", 30)
+        expected_output = (
+            "Mortgage Amount: $682,912.43\n" \
+            "Rate: 5.99%\n" \
+            "Amortization: 30\n"
+            "Frequency: Weekly -- Calculated Payment: $943.20"
+        )
+        self.assertEqual(str(mortgage), expected_output)

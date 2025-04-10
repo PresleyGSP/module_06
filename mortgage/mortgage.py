@@ -128,6 +128,26 @@ class Mortgage:
 
           return round(payment, 2)
 
-    
+    def __str__(self):
+          formatted_rate = f"{self.__rate.value * 100:.2f}%"
+          calculated_payment = self.calculate_payment()
+          formatted_amount = f"${self.__loan_amount:,.2f}"
 
+          if self.__frequency == PaymentFrequency.MONTHLY:
+                frequency = "Monthly"
+          elif self.__frequency == PaymentFrequency.BI_WEEKLY:
+                frequency = "Bi-Weekly"
+          elif self.__frequency == PaymentFrequency.WEEKLY:
+                frequency = "Weekly"
+
+          return (f"Mortgage Amount: {formatted_amount}\n"
+            f"Rate: {formatted_rate}\n"
+            f"Amortization: {self.__amortization}\n"
+            f"Frequency: {frequency} -- "
+            f"Calculated Payment: ${calculated_payment:,.2f}")
+    def __repr__(self):
+          return (f"Mortgage({self.__loan_amount}, "
+            f"{self.__rate.value}, "
+            f"{self.__frequency.value}, "
+            f"{self.__amortization})"
 
