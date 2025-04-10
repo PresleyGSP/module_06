@@ -41,4 +41,9 @@ Presley McFarlane-Goolcharan
 - Added accessors and mutators for "VALID_AMORTIZATION" list.
 - Added unit testing for "VALID_AMORTIZATION" list accessors and mutators.
 
+## Code Modification 8
+
+- Added a "calculate_payment()" method to calculate loan repayment.
+- Added unit testing with valid input for "calculate_payment()" method.
+
 

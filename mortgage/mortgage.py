@@ -109,8 +109,25 @@ class Mortgage:
             raise ValueError("Amortization provided is invalid.")
           self.__amortization = amortization
                 
+    def calculate_payment(self) -> float:
+          """
+          Calculates and returns the mortgage payment amount using the standard amortization formula.
 
+          Returns:
+                 float: The regular mortgage payment, rounded to two decimal places.
+          """
 
+          P = self.__loan_amount 
+          i = self.__rate.value / self.__frequency.value
+          n = self.__amortization * self.__frequency.value
 
+          if i == 0:
+                payment = P / n
+          else:
+                payment = P * ((i * (1 + i) ** n) / ((1 + i) ** n - 1))
+
+          return round(payment, 2)
+
+    
 
 
